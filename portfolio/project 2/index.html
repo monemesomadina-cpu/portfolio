@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Dashboard Mockup</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9a66a56.js" crossorigin="anonymous"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">A<span>lex</span></div>
+        <div class="role">Product Designer • Frontend</div>
+      </div>
+
+      <nav class="menu">
+        <a class="menu-item active" href="#"><i class="fa-solid fa-gauge"></i><span>Overview</span></a>
+        <a class="menu-item" href="#"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+        <a class="menu-item" href="#"><i class="fa-solid fa-box"></i><span>Projects</span></a>
+        <a class="menu-item" href="#"><i class="fa-solid fa-users"></i><span>Users</span></a>
+        <a class="menu-item" href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="collapseBtn" class="ghost">Collapse</button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="search">
+          <input id="globalSearch" type="search" placeholder="Search projects, users..." />
+        </div>
+
+        <div class="top-actions">
+          <div class="notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">3</span>
+            <div class="dropdown" id="notificationsDropdown" aria-hidden="true">
+              <ul style="list-style:none;margin:0;padding:0;">
+                <li style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.02);">New transaction from <strong>BlueCo</strong></li>
+                <li style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.02);">Deployment succeeded</li>
+                <li style="padding:8px;">New signup: <strong>jane@doe.com</strong></li>
+              </ul>
+            </div>
+          </div>
+          <!-- BTC live widget -->
+          <div class="market-widget" id="btcWidget" title="Live BTC price">
+            <div class="ticker">
+              <div class="symbol">BTC</div>
+              <div class="price" id="btcPrice">--</div>
+              <div class="change" id="btcChange">--</div>
+            </div>
+            <canvas id="btcSparkline" width="120" height="28" aria-hidden="true"></canvas>
+          </div>
+          <div class="profile">
+            <img src="https://via.placeholder.com/36" alt="Avatar" />
+            <span class="name">Alex</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard grid -->
+      <section class="grid">
+
+        <!-- Row 1: KPI cards -->
+        <div class="kpis">
+          <article class="kpi">
+            <div class="kpi-title">Revenue</div>
+            <div class="kpi-value">$14,820</div>
+            <div class="kpi-meta up">+8.4% vs last week</div>
+          </article>
+
+          <article class="kpi">
+            <div class="kpi-title">Active Users</div>
+            <div class="kpi-value">3,412</div>
+            <div class="kpi-meta down">-1.2% vs last week</div>
+          </article>
+
+          <article class="kpi">
+            <div class="kpi-title">New Signups</div>
+            <div class="kpi-value">248</div>
+            <div class="kpi-meta up">+15% vs last week</div>
+          </article>
+
+          <article class="kpi">
+            <div class="kpi-title">Conversion</div>
+            <div class="kpi-value">4.8%</div>
+            <div class="kpi-meta up">+0.7% vs last week</div>
+          </article>
+        </div>
+
+        <!-- Row 2: Charts -->
+        <div class="charts">
+          <div class="chart-card">
+            <div class="card-head">
+              <h3>Weekly Visits</h3>
+              <div class="card-sub">Traffic by source</div>
+            </div>
+            <canvas id="visitsChart"></canvas>
+          </div>
+
+          <div class="chart-card small">
+            <div class="card-head">
+              <h3>Revenue by Channel</h3>
+            </div>
+            <canvas id="revenueChart"></canvas>
+          </div>
+
+          <div class="chart-card small">
+            <div class="card-head">
+              <h3>Top Projects</h3>
+            </div>
+            <ul id="topProjects" class="list"></ul>
+          </div>
+          <!-- BTC market chart -->
+          <div class="chart-card" style="grid-column:1/-1;">
+            <div class="card-head"><h3>BTC — Live (simulated)</h3><div class="card-sub">Real-time price updates</div></div>
+            <canvas id="btcChart" style="height:160px"></canvas>
+          </div>
+        </div>
+
+        <!-- Row 3: Table + Activity -->
+        <div class="lower">
+          <div class="table-card">
+            <div class="card-head">
+              <h3>Recent Transactions</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Client</th>
+                    <th>Project</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionsBody">
+                  <!-- filled by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="activity-card">
+            <div class="card-head">
+              <h3>Activity Feed</h3>
+            </div>
+            <ul id="activityFeed" class="feed"></ul>
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="footer">
+        <small>© 2025 Alex — Dashboard mockup</small>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal backdrop (hidden) -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modalContent">
+      <h3 id="modalTitle">Details</h3>
+      <div id="modalBody" style="margin-top:8px;color:var(--muted)"></div>
+      <div style="margin-top:12px;text-align:right">
+        <button id="modalClose" class="btn-ghost">Close</button>
+        <button id="modalPrimary" class="btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

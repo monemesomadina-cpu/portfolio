@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>🕒 Task Timer</h1>
+  <p class="subtitle">Stay focused — track small tasks and build momentum.</p>
+
+    <input type="text" id="taskInput" placeholder="Enter your task..." />
+
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" class="inactive">Stop</button>
+    </div>
+
+    <div id="timerDisplay">00:00</div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="project.js"></script>
+</body>
+</html>

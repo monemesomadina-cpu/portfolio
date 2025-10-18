@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project One — Code</title>
+    <style>
+      body { font-family: system-ui, Arial; background: #111; color: #e6e6e6; padding: 20px }
+      pre { background: #0b0b0b; padding: 16px; border-radius: 8px; overflow: auto; white-space: pre-wrap }
+      h1 { font-size: 20px }
+      .file { margin-bottom: 24px }
+      .meta { color: #9a9a9a; font-size: 13px }
+      a.back { color: #8fb3ff }
+    </style>
+  </head>
+  <body>
+    <h1>Project One — source files</h1>
+    <p class="meta">This viewer displays the project source as text (not executed). <a class="back" href="../index.html">Back to portfolio</a></p>
+
+    <div class="file">
+      <h2>homepage.html</h2>
+      <pre><code>&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;NovaOne&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div class="sidebar"&gt;
+      &lt;h2 class="sidebar__header"&gt;Home&lt;/h2&gt;
+      &lt;ul class="sidebar__options"&gt;
+         &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-user"&gt;About&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-briefcase"&gt;Projects&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fas fa-envelope"&gt;Contact&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li&gt;&lt;a href="order.html"&gt;&lt;i class="fas fa-user"&gt;order&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+   &lt;div class="Main-content"&gt;
+      &lt;h4&gt;Welcome to&lt;/h4&gt;
+      &lt;div class="Image-container"&gt;
+         &lt;img src="a2.jpeg" alt="" class="title-img"&gt;
+      &lt;/div&gt;
+      &lt;h1 class="Main-content__header"&gt;CTL_&lt;span class="codes"&gt;SEVICES&lt;/span&gt;&lt;/h1&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui debitis dolores est corrupti fugit cum blanditiis sit adipisci, perspiciatis, distinctio numquam porro facere tempora rem ipsam. Alias quidem deserunt officia.&lt;/p&gt;
+      &lt;button&gt;Get started&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="file">
+      <h2>style.css</h2>
+      <pre><code>/* project local style.css (excerpted) */
+body{
+    background: #0a0a1a;
+    overflow: auto;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    border-right: 4px solid transparent;
+    background: #0a0a1a;
+}
+/* ...rest of file... */</code></pre>
+    </div>
+
+    <div class="file">
+      <h2>order.html</h2>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="order.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;section class="fill"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2&gt;ORDER FORM&lt;/h2&gt;
+            &lt;form &gt;
+             &lt;label &gt;First Name&lt;/label&gt;
+             &lt;input type="text" placeholder="name"/&gt;
+             &lt;label &gt;Email&lt;/label&gt;
+             &lt;input type="email" placeholder="email"&gt;
+             &lt;label &gt;Whatsapp number&lt;/label&gt;
+             &lt;input type="number" placeholder="mobile number"&gt;
+             &lt;label &gt;date&lt;/label&gt;
+             &lt;input type="date"&gt;
+             &lt;label &gt;services to be offered&lt;/label&gt;
+             &lt;textarea&gt;&lt;/textarea&gt;
+           &lt;button&gt;
+             submit
+           &lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+  </body>
+</html>

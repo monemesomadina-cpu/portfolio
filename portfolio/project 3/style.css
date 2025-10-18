@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.app {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Decorative floating shapes behind the app container */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+body::before {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.12);
+  left: 6%;
+  top: 6%;
+}
+
+body::after {
+  width: 260px;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.08);
+  right: 6%;
+  bottom: 6%;
+}
+
+/* make sure the app is above decorative shapes */
+.app {
+  z-index: 1;
+}
+
+#taskInput {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.8rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  position: relative; /* allow absolute children */
+  min-height: 54px; /* give room for the button to move */
+  align-items: center;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  margin: 0.3rem;
+  transition: background 0.3s;
+}
+
+#startBtn {
+  background: #28a745;
+}
+#startBtn:hover {
+  background: #218838;
+}
+
+#stopBtn {
+  background: #dc3545;
+}
+#stopBtn:hover {
+  background: #c82333;
+}
+
+/* styles for inactive/dodging stop button */
+#stopBtn.inactive {
+  position: absolute;
+  /* initial left/top are set from JS to match the normal flow position */
+  transition: left 220ms cubic-bezier(.2,.9,.2,1), top 220ms cubic-bezier(.2,.9,.2,1);
+  z-index: 2;
+}
+
+/* when active, put the button back into normal flow */
+#stopBtn:not(.inactive) {
+  position: relative;
+  z-index: 1;
+}
+
+#timerDisplay {
+  font-size: 2rem;
+  margin: 1rem 0;
+  font-weight: bold;
+  color: #333;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  text-align: left;
+}
+
+#taskList li {
+  background: #f7f7f7;
+  margin: 0.3rem 0;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
