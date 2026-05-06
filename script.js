@@ -46,7 +46,6 @@ function startTyping() {
     strings: [
       "Hi, I'm Moneme Somadina...",
       "A Frontend Developer 💻",
-      "A UI/UX Enthusiast 🎨",
     ],
     typeSpeed: 60,
     backSpeed: 50,
